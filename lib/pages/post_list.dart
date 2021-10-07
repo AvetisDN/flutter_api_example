@@ -14,12 +14,28 @@ Widget postList() {
         return ListView.builder(
           itemCount: posts!.length,
           itemBuilder: (BuildContext ctx, int index) {
+            Post post = posts[index];
             return Card(
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-
+              elevation: 3,
+              margin: const EdgeInsets.fromLTRB(6, 16, 6, 0),
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(12, 18, 12, 18),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    const Icon(
+                      Icons.access_alarm_rounded,
+                    ),
+                    const SizedBox(
+                      width: 12,
+                    ),
+                    Expanded(
+                      child: Text(post.title),
+                    )
+                  ],
+                ),
               ),
-            ),
+            );
           },
         );
       } else {

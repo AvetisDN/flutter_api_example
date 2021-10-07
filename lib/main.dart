@@ -1,7 +1,7 @@
 import 'package:app_test/pages/post_list.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import './theme/theme_model.dart';
+import 'package:app_test/theme/theme_model.dart';
 
 void main() {
   runApp(const App());
@@ -38,8 +38,13 @@ class _HomePageState extends State {
   Widget build(BuildContext context) {
     return Consumer(builder: (context, ThemeModel themeNotifier, child) {
       return Scaffold(
+        backgroundColor:
+            !themeNotifier.isDark ? Colors.grey.shade100 : Colors.grey.shade900,
         appBar: AppBar(
           title: Text(themeNotifier.isDark ? "Dark Mode" : "Light Mode"),
+          backgroundColor: !themeNotifier.isDark
+              ? Colors.blue.shade500
+              : Colors.blue.shade900,
           actions: [
             IconButton(
                 icon: Icon(themeNotifier.isDark
